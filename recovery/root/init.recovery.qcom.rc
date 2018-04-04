@@ -1,0 +1,7 @@
+on early-init
+    mkdir /firmware 0771 system system
+
+on fs
+    wait /dev/block/platform/soc/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+
